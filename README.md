@@ -6,11 +6,19 @@
 ```
 https://a5lgfuj6sa.execute-api.us-east-1.amazonaws.com/Stage
 ```
+Example output:
+```
+{"deviceID": "1N4BU31D2TC186889", "err": 98910, "timestamp":1514766730},
+{"deviceID": "1N4BU31D2TC186889", "err": 75698, "timestamp":1514766731},
+{"deviceID": "1N4BU31D2TC186889", "err": 35294, "timestamp":1514766784}
+```
+
+
 **2. To get a logs of the error codes in the reverse chronological order for any given device ID please run the `curl` command below. Please note that the URL ends with the deviceID. Replace it with another id to get different listing:
 ```
 curl https://a5lgfuj6sa.execute-api.us-east-1.amazonaws.com/Stage/JA3215H14CU015290
 ```
-Example output
+Example output:
 ```
 [{"error_code":15601, "timestamp":1514767287},
 {"error_code":87830, "timestamp":1514767247},
