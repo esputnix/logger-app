@@ -68,7 +68,7 @@ Please note, that the number and the names of the fields is supervised by the AP
 
 # Logger-App Architecture
 
-Logger-App is an integrated continuous delivery pipeline application. Every change that pushed to the source control repository triggers a pipeline that builds and deploys this application automatically. It is made of the following resources:
+Logger-App is an integrated continuous delivery pipeline application. Every change pushed to the source control repository triggers a pipeline that builds and deploys this application automatically. It is made of the following resources:
 
 **Application** – orchestrates five Node.js serverless Lambda functions, build using the AWS Serverless Application Model template.
 
