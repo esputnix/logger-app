@@ -54,6 +54,21 @@ Example output:
 
 ```
 
+** 5. To publish a new error log please use the `curl` command below:
+```
+curl -d '{"deviceID": "1G6KD57Y68U158520", "err": 4199, "timestamp": 1514764810, "value": 1}' -H "Content-Type: application/json" -X POST https://a5lgfuj6sa.execute-api.us-east-1.amazonaws.com/Stage
+```
+Example output:
+```
+{"deviceID": "1G6KD57Y68U158520", "err": 4199, "timestamp": 1514764810, "value": 1}
+```
+Please note, that the number and the names of the fields is supervised by the API. If there are any fields missing, mispelled or of unsupported data type the API returns an error.
+
+
+
+
+
+
 
 
 This project contains source code and supporting files for the serverless application that you created in the AWS Lambda console. You can update your application at any time by committing and pushing changes to your AWS CodeCommit or GitHub repository.
