@@ -33,6 +33,7 @@ Example output:
 ```
 [[90525, 2], [84105, 2], [6150, 2], [73620, 2], [26499, 2], [28074, 2], [28589, 2], [45970, 2], [14999, 2]]
 ```
+(The first digit represents an error code, while the second number tells how many times the error occurred.)
 
 
 This project contains source code and supporting files for the serverless application that you created in the AWS Lambda console. You can update your application at any time by committing and pushing changes to your AWS CodeCommit or GitHub repository.
