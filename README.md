@@ -1,5 +1,24 @@
 # Logger-App
 
+## A quick test of Logger-App REST API
+
+**1. To get a complete list of all the log entities stored in the DynamoDB please run the `curl` command below:
+```
+https://a5lgfuj6sa.execute-api.us-east-1.amazonaws.com/Stage
+```
+**2. To get a logs of the error codes in the reverse chronological order for any given device ID please run the `curl` command below. Please note that the URL ends with the deviceID. Replace it with another id to get different listing:
+```
+curl https://a5lgfuj6sa.execute-api.us-east-1.amazonaws.com/Stage/JA3215H14CU015290
+```
+Example output
+
+[{"error_code":15601,"timestamp":1514767287},
+{"error_code":87830,"timestamp":1514767247},
+{"error_code":57203,"timestamp":1514767243}]
+
+
+
+
 This project contains source code and supporting files for the serverless application that you created in the AWS Lambda console. You can update your application at any time by committing and pushing changes to your AWS CodeCommit or GitHub repository.
 
 This project includes the following files and folders:
