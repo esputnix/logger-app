@@ -33,6 +33,28 @@ Example output:
 ```
 (The first number is the error code, while the second number shows how many times the error has occurred.)
 
+** 4. To get the logs listing occured within a specific time frame for a given device ID, please use the `curl` command below. This endpoint takes the `deviceID` as an argument along with the `startDate` and `endDate` Query String Parameters:
+```
+curl https://a5lgfuj6sa.execute-api.us-east-1.amazonaws.com/Stage/range/JA3215H14CU015290?startDate=2017-11-05T08:15:30Z&endDate=2021-11-05T08:15:30Z
+```
+Example output:
+```
+    {
+        "deviceId": "JA3215H14CU015290"
+    },
+    {
+        "deviceId": "JA3215H14CU015290"
+    },
+    {
+        "deviceId": "JA3215H14CU015290"
+    },
+    {
+        "deviceId": "JA3215H14CU015290"
+    }
+
+```
+
+
 
 This project contains source code and supporting files for the serverless application that you created in the AWS Lambda console. You can update your application at any time by committing and pushing changes to your AWS CodeCommit or GitHub repository.
 
