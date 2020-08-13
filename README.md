@@ -2,7 +2,7 @@
 
 ## A quick test of Logger-App REST API
 
-1. To get a complete list of all the log entities stored in the DynamoDB please run the `curl` command below:
+#### 1. To get a complete list of all the log entities stored in the DynamoDB please run the `curl` command below:
 ```
 https://a5lgfuj6sa.execute-api.us-east-1.amazonaws.com/Stage
 ```
@@ -14,7 +14,7 @@ Example output:
 ```
 
 
-2. To get the logs of the error codes in the reverse chronological order for any given device ID please run the `curl` command below. Please note that the URL ends with the deviceID. Replace it with another id to get different listing:
+### 2. To get the logs of the error codes in the reverse chronological order for any given device ID please run the `curl` command below. Please note that the URL ends with the deviceID. Replace it with another id to get different listing:
 ```
 curl https://a5lgfuj6sa.execute-api.us-east-1.amazonaws.com/Stage/JA3215H14CU015290
 ```
@@ -25,7 +25,7 @@ Example output:
 {"error_code":57203, "timestamp":1514767243}]
 ```
 
-3. To get the logs of the the most prevalent error codes (currently requires at least occurances for a given device id):
+### 3. To get the logs of the the most prevalent error codes (currently requires at least occurances for a given device id):
 ```
 curl https://a5lgfuj6sa.execute-api.us-east-1.amazonaws.com/Stage/stat
 ```
@@ -33,7 +33,7 @@ Example output:
 ```
 [[90525, 2], [84105, 2], [6150, 2], [73620, 2], [26499, 2], [28074, 2], [28589, 2], [45970, 2], [14999, 2]]
 ```
-(The first digit represents an error code, while the second number tells how many times the error occurred.)
+(The first number is the error code, while the second number shows how many times the error has occurred.)
 
 
 This project contains source code and supporting files for the serverless application that you created in the AWS Lambda console. You can update your application at any time by committing and pushing changes to your AWS CodeCommit or GitHub repository.
