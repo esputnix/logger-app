@@ -137,7 +137,7 @@ The DynamoDB is a fully managed NoSQL database that provides fast and predictabl
           ReadCapacityUnits: !Ref 'ReadCapacityUnits'
           WriteCapacityUnits: !Ref 'WriteCapacityUnits'
 ```
-To access the table using AWS console please use the link below:
+To access this table using AWS console please use the link below:
 ```
 https://console.aws.amazon.com/dynamodb/home?region=us-east-1#tables:selected=logger-app-SampleTable-I92ZQMWUI63R;tab=items
 ```
