@@ -170,4 +170,60 @@ put-item.js
 ```
 https://console.aws.amazon.com/codesuite/codecommit/repositories/logger-app/browse/refs/heads/master/--/src/handlers?region=us-east-1
 ```
-To grant the Lamda functions an access to the DynamoDB tables their permissions boundary has been updated accordintly.  
+To grant the Lamda functions an access to the DynamoDB tables their permissions boundary has been defined as:  
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "StackResources",
+      "Effect": "Allow",
+      "Action": [
+        "*"
+      ],
+      "Resource": [
+        "arn:aws:dynamodb:us-east-1:644982427275:table/logger-app-SampleTable-I92ZQMWUI63R",
+        "arn:aws:dynamodb:us-east-1:644982427275:table/logger-app-SampleTable-I92ZQMWUI63R/*",
+        "arn:aws:apigateway:us-east-1::/restapis/a5lgfuj6sa",
+        "arn:aws:apigateway:us-east-1::/restapis/a5lgfuj6sa/*",
+        "arn:aws:execute-api:us-east-1:644982427275:a5lgfuj6sa",
+        "arn:aws:execute-api:us-east-1:644982427275:a5lgfuj6sa/*",
+        "arn:aws:lambda:us-east-1:644982427275:function:logger-app-getAllItemsFunction-HL5TRWK9ZPRW",
+        "arn:aws:lambda:us-east-1:644982427275:function:logger-app-getByIdFunction-FAQWAQ4PHQPH",
+        "arn:aws:lambda:us-east-1:644982427275:function:logger-app-getByIdTimeRangeFunction-1OV2IAR1SPCXS",
+        "arn:aws:lambda:us-east-1:644982427275:function:logger-app-getPrevalentErrorsFunction-U88UBT1MQ0HJ",
+        "arn:aws:lambda:us-east-1:644982427275:function:logger-app-putItemFunction-TCUNN2KVS1HP"
+      ]
+    },
+    {
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:DescribeLogGroups",
+        "logs:PutLogEvents",
+        "xray:Put*"
+      ],
+      "Resource": "*",
+      "Effect": "Allow",
+      "Sid": "StaticPermissions"
+    },
+    {
+      "Condition": {
+        "StringEquals": {
+          "aws:RequestTag/aws:cloudformation:stack-name": [
+            "logger-app"
+          ]
+        },
+        "ForAllValues:StringEquals": {
+          "aws:TagKeys": "aws:cloudformation:stack-name"
+        }
+      },
+      "Action": "*",
+      "Resource": "*",
+      "Effect": "Allow",
+      "Sid": "StackResourcesTagging"
+    }
+  ]
+}
+```
