@@ -157,3 +157,14 @@ To access this DynamoDB table using AWS console please use the link below:
 https://console.aws.amazon.com/codesuite/codecommit/repositories/logger-app/browse?region=us-east-1
 ```
 
+** 4. Lambda functions
+
+While all five Lambda functions are defined in the same `template.yml` file their source code is stores in the separate `javascript` files located in the `/src/handlers/` repository folder: 
+```
+get-all-items.js
+get-by-id-time-range.js
+get-by-id.js
+get-prevalent.js
+put-item.js
+```
+
