@@ -227,7 +227,7 @@ To grant the Lamda functions an access to the DynamoDB tables their permissions 
   ]
 }
 ```
-To edit the PermissionBoundary please use the link below:
+To edit this PermissionBoundary please use the link below:
 ```
 https://console.aws.amazon.com/iam/home?region=us-east-1#/policies/arn:aws:iam::644982427275:policy/logger-app-us-east-1-PermissionsBoundary$edit?step=edit
 ```
