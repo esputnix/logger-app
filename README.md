@@ -246,7 +246,9 @@ The are used to configure the Authorization, Validators, URL Query String Parame
 https://console.aws.amazon.com/apigateway/home?region=us-east-1#/apis/a5lgfuj6sa/authorizers
 ```
 ** 6. Congito and Authorization tokens
-Using Congito service, there was a User Pool defined with the `App client settings` configured to Allow OAuth Flows with `Implicit grant` option. It offers a single step the autorization tokens generation process. The second `Authorization code grant` option available to enhance the token generation making it two steps process. To access the `API-AUTH-USERS-POOl` please use the link below:
+
+To secure the API calls there are several methods available. To complete the token authentication mechanism implemented in the Logger-App API Gateway
+there was a Congitor User Pool defined with the `App client settings` configured to Allow OAuth Flows with `Implicit grant` option. It offers a single step authorization tokens generation. The second `Authorization code grant` option available as well. It can be used to secure the token generation with a two steps process. With the Authorization enabled, the API Gateway will be expecting the authorization token supplied with the `Authorizer` header. To access the `API-AUTH-USERS-POOl` please use the link below:
 ```
 https://console.aws.amazon.com/cognito/users/?region=us-east-1#/pool/us-east-1_mPgGZlgTd/app-integration-app-settings?_k=111q83
 ```
