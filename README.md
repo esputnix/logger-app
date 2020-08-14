@@ -85,3 +85,56 @@ Logger-App is an integrated continuous delivery pipeline application. Every chan
 **Bucket** – An Amazon Simple Storage Service S3 bucket for deployment artifact storage.
 
 **Various Roles** – The pipeline's source, build, and deploy stages have IAM roles that manage AWS resources. The application's function has an execution role that allows it to upload logs and can be extended to access other services.
+
+# System Breakdown
+
+** 1. The Application defenition
+The Logger-App application and its pipeline resources are all defined in AWS CloudFormation tempale that can be customized and extended. The application repository includes a `template.yml` template that is used to add Amazon DynamoDB tables, an Amazon API Gateway API, and other application resources. The continuous delivery pipeline is defined in a separate template outside of source control and has its own stack.
+
+** 2. DynomoDB database
+
+The DynamoDB is a fully managed NoSQL database that provides fast and predictable performance with seamless scalability. It offloads the administrative burdens of operating and scaling a distributed database, encryption at rest, provides the on-demand backup capability and automatically spreads the data and traffic for the tables. The Logger-App temlate defines a table of type `AWS::DynamoDB::Table` with the `Primary KeySchema` indexing the `deviceID` field as `hash` keytype and `timestamp` field as `range`. In additon to the `Primary KeySchema` there is a `LocalSecondaryIndexes` defined with `deviceID` as `hash` keytype and `err` as `RANGE`:
+```
+  SampleTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      AttributeDefinitions:
+      - AttributeName: timestamp
+        AttributeType: N
+      - AttributeName: deviceID
+        AttributeType: S
+      - AttributeName: err 
+        AttributeType: N
+      - AttributeName: status 
+        AttributeType: S        
+      KeySchema:
+      - AttributeName: deviceID
+        KeyType: HASH
+      - AttributeName: timestamp
+        KeyType: RANGE
+      ProvisionedThroughput:
+        ReadCapacityUnits: !Ref 'ReadCapacityUnits'
+        WriteCapacityUnits: !Ref 'WriteCapacityUnits'
+      LocalSecondaryIndexes:
+      - IndexName: errIndex
+        KeySchema:
+        - AttributeName: deviceID
+          KeyType: HASH
+        - AttributeName: err
+          KeyType: RANGE
+        Projection:
+          ProjectionType: KEYS_ONLY
+      GlobalSecondaryIndexes:
+      - IndexName: timeIndex
+        KeySchema:
+        - AttributeName: status
+          KeyType: HASH
+        - AttributeName: timestamp
+          KeyType: RANGE
+        Projection:
+          ProjectionType: KEYS_ONLY
+        ProvisionedThroughput:
+          ReadCapacityUnits: !Ref 'ReadCapacityUnits'
+          WriteCapacityUnits: !Ref 'WriteCapacityUnits'
+```
+
