@@ -91,6 +91,11 @@ Logger-App is an integrated continuous delivery pipeline application. Every chan
 ** 1. The Application defenition
 The Logger-App application and its pipeline resources are all defined in AWS CloudFormation tempale that can be customized and extended. The application repository includes a `template.yml` template that is used to add Amazon DynamoDB tables, an Amazon API Gateway API, and other application resources. The continuous delivery pipeline is defined in a separate template outside of source control and has its own stack.
 
+To access the Logger App using AWS console please use the link below:
+```
+https://console.aws.amazon.com/lambda/home?region=us-east-1#/applications
+```
+
 ** 2. DynomoDB database
 
 The DynamoDB is a fully managed NoSQL database that provides fast and predictable performance with seamless scalability. It offloads the administrative burdens of operating and scaling a distributed database, encryption at rest, provides the on-demand backup capability and automatically spreads the data and traffic for the tables. The Logger-App temlate defines a table of type `AWS::DynamoDB::Table` with the `Primary KeySchema` indexing the `deviceID` field as `hash` keytype and `timestamp` field as `range`. In additon to the `Primary KeySchema` there is a `LocalSecondaryIndexes` defined with `deviceID` as `hash` keytype and `err` as `RANGE`:
@@ -137,10 +142,18 @@ The DynamoDB is a fully managed NoSQL database that provides fast and predictabl
           ReadCapacityUnits: !Ref 'ReadCapacityUnits'
           WriteCapacityUnits: !Ref 'WriteCapacityUnits'
 ```
-To access this table using AWS console please use the link below:
+To access this DynamoDB table using AWS console please use the link below:
 ```
 https://console.aws.amazon.com/dynamodb/home?region=us-east-1#tables:selected=logger-app-SampleTable-I92ZQMWUI63R;tab=items
 ```
 
 
-** 3. DynomoDB database
+** 3. CodeCommit source code repository
+
+The CodeCommit is used here to host a `Logger-app` Git repository. The commits made to its `master` branch emit the events that trigger the CloudFormation stack that deploys the pipeline infrastructure.
+
+To access this DynamoDB table using AWS console please use the link below:
+```
+https://console.aws.amazon.com/codesuite/codecommit/repositories/logger-app/browse?region=us-east-1
+```
+
