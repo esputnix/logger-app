@@ -170,3 +170,4 @@ put-item.js
 ```
 https://console.aws.amazon.com/codesuite/codecommit/repositories/logger-app/browse/refs/heads/master/--/src/handlers?region=us-east-1
 ```
+To grant the Lamda functions an access to the DynamoDB tables their permissions boundary has been updated accordintly.  
