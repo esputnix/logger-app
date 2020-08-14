@@ -231,7 +231,18 @@ To edit this PermissionBoundary please use the link below:
 ```
 https://console.aws.amazon.com/iam/home?region=us-east-1#/policies/arn:aws:iam::644982427275:policy/logger-app-us-east-1-PermissionsBoundary$edit?step=edit
 ```
-** 6. API Gateway
+** 5. API Gateway
 
-API Gateway acts here as the front door for Logger-App application and is used to access data, business logic, or functionality from the backend service running as Lambda functions. It handles all the tasks involved in accepting and processing up to hundreds of thousands of concurrent API calls, including traffic management, CORS support, authorization and access control, throttling, monitoring, and API version management. 
+API Gateway acts here as the front door for the Logger-App application and is used to access data, business logic, or functionality from the backend service running as Lambda functions. It handles all the tasks involved in accepting and processing up to hundreds of thousands of concurrent API calls, including traffic management, CORS support, authorization and access control, throttling, monitoring, and API version management. 
+
+To access the API resources please use the link below:
+```
+https://console.aws.amazon.com/apigateway/home?region=us-east-1#/apis/a5lgfuj6sa/resources/x9bdqbzvs1
+```
+
+For each API Resource there were four methods created: `Method Request`, `Integration Request`,  `Method Response` and `Integration Response`.
+The are used to configure the Authorization, Validators, URL Query String Parameters and HTTP Request Body/Headers validation. The `AWS_IAM` along with Congito is used here for the Authorization mechanism. To access the Authorizer configuration page please use the link below:
+```
+https://console.aws.amazon.com/apigateway/home?region=us-east-1#/apis/a5lgfuj6sa/authorizers
+```
 
