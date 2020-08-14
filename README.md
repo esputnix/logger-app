@@ -245,5 +245,8 @@ The are used to configure the Authorization, Validators, URL Query String Parame
 ```
 https://console.aws.amazon.com/apigateway/home?region=us-east-1#/apis/a5lgfuj6sa/authorizers
 ```
-Using Congito service, there was a User Pool defined with the `App client settings` configured to Allow OAuth Flows with `Implicit grant` option. It offers a single step validation. The second `Authorization code grant` option available to enhance the autrization process. 
+Using Congito service, there was a User Pool defined with the `App client settings` configured to Allow OAuth Flows with `Implicit grant` option. It offers a single step the autorization tokens generation process. The second `Authorization code grant` option available to enhance the token generation making it two steps process. To access the `API-AUTH-USERS-POOl` please use the link below:
+```
+https://console.aws.amazon.com/cognito/users/?region=us-east-1#/pool/us-east-1_mPgGZlgTd/app-integration-app-settings?_k=111q83
+```
 
