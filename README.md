@@ -253,3 +253,4 @@ there was a Congitor User Pool defined with the `App client settings` configured
 https://console.aws.amazon.com/cognito/users/?region=us-east-1#/pool/us-east-1_mPgGZlgTd/app-integration-app-settings?_k=111q83
 ```
 
+
