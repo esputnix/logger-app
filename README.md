@@ -22,9 +22,23 @@ curl -X GET \
 ```
 Example output:
 ```
-[{"error_code":15601, "timestamp":1514767287},
-{"error_code":87830, "timestamp":1514767247},
-{"error_code":57203, "timestamp":1514767243}]
+[
+    {
+        "deviceId": "JA3215H14CU015290"
+    },
+    {
+        "deviceId": "JA3215H14CU015290"
+    },
+    {
+        "deviceId": "JA3215H14CU015290"
+    },
+    {
+        "deviceId": "JA3215H14CU015290"
+    },
+    {
+        "deviceId": "JA3215H14CU015290"
+    }
+]
 ```
 
 ** 3. Send a GET request to the endpoint to get the logs of the the most prevalent error codes (currently requires at least occurances for a given device id):
