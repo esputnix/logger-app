@@ -12,9 +12,13 @@ Example output:
 {"deviceID": "1N4BU31D2TC186889", "err": 75698, "timestamp":1514766731},
 {"deviceID": "1N4BU31D2TC186889", "err": 35294, "timestamp":1514766784}
 ```
-** 2. Send a GET request to the endpoint to get the logs of the error codes in the reverse chronological order for any given device ID please run the `curl` command below. Please note that the URL ends with the deviceID. Replace it with another id to get different listing:
+** 2. Send a GET request to the endpoint to get the logs of the error codes in the reverse chronological order for any given device ID please run the `curl` command below. Plase customize the URL with another deviceID, start and end time to get different log listing:
 ```
-curl https://a5lgfuj6sa.execute-api.us-east-1.amazonaws.com/Stage/JA3215H14CU015290
+curl -X GET \
+  'https://a5lgfuj6sa.execute-api.us-east-1.amazonaws.com/Stage/range/JA3215H14CU015290?startDate=2017-12-05T08:15:30Z&endDate=2018-01-05T08:15:30Z' \
+  -H 'Content-Type: application/javascript' \
+  -H 'Postman-Token: 0dec9bc2-3629-4380-bfbf-b5ce82df5237' \
+  -H 'cache-control: no-cache'
 ```
 Example output:
 ```
