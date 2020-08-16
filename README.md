@@ -25,14 +25,32 @@ Example output:
 
 ** 3. Send a GET request to the endpoint to get the logs of the the most prevalent error codes (currently requires at least occurances for a given device id):
 ```
-curl https://a5lgfuj6sa.execute-api.us-east-1.amazonaws.com/Stage/stat
+curl -X GET \
+  'https://a5lgfuj6sa.execute-api.us-east-1.amazonaws.com/Stage/stat?min=1' \
+  -H 'Content-Type: application/json' \
+  -H 'Postman-Token: f5cd736d-f5d0-4ea9-9ff3-9a89a2048820' \
+  -H 'cache-control: no-cache'
 ```
 Example output:
 ```
-[[90525, 2], [84105, 2], [6150, 2], [73620, 2], [26499, 2], [28074, 2], [28589, 2], [45970, 2], [14999, 2]]
-```
-(The first number is the error code, while the second number shows how many times the error has occurred.)
+{
+    "errorsCount": [
+        {
+            "err": 3.1415,
+            "count": 3.1415
+        },
+        {
+            "err": 3.1415,
+            "count": 3.1415
+        },
+        {
+            "err": 3.1415,
+            "count": 3.1415
+        }
+    ]
+}
 
+```
 ** 4. Send a GET request to the endpoint to get the logs list that occured within a specific time frame for any given device ID. Please use the `curl` command below. This endpoint takes the `deviceID` as an argument along with the `startDate` and `endDate` Query String Parameters:
 ```
 curl -X GET 'https://a5lgfuj6sa.execute-api.us-east-1.amazonaws.com/Stage/range/JA3215H14CU015290?startDate=2017-11-05T08:15:30Z&endDate=2021-11-05T08:15:30Z'
@@ -56,15 +74,21 @@ Example output:
 
 ** 5. Send a POST request to the endpoint to publish a new error log please use the `curl` command below:
 ```
-curl -d '{"deviceID": "1G6KD57Y68U158520", "err": 4199, "timestamp": 1514764810, "value": 1}' -H "Content-Type: application/json" -X POST https://a5lgfuj6sa.execute-api.us-east-1.amazonaws.com/Stage
+curl -X POST \
+  https://a5lgfuj6sa.execute-api.us-east-1.amazonaws.com/Stage \
+  -H 'Content-Type: application/json' \
+  -H 'Postman-Token: f4e27ac2-43d2-479b-b37a-73efedf908a9' \
+  -H 'cache-control: no-cache' \
+  -d '{"deviceID": "9N4BU31D2TC186896", "err": 35294, "timestamp":1514766784}'
 ```
 Example output:
 ```
-{"deviceID": "1G6KD57Y68U158520", "err": 4199, "timestamp": 1514764810, "value": 1}
+{
+    "deviceID": "9N4BU31D2TC186896",
+    "timestamp": 1514766784,
+    "err": 35294
+}
 ```
-Please note, that the number and the names of the fields is supervised by the API. If there are any fields missing, mispelled or of unsupported data type the API returns an error.
-
-
 
 # Logger-App Architecture
 
