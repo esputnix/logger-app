@@ -4,7 +4,7 @@
 
 ** 1. Send a GET request to the endpoint to get a complete list of all the log entities stored in the DynamoDB please run the `curl` command below:
 ```
-https://a5lgfuj6sa.execute-api.us-east-1.amazonaws.com/Stage
+curl https://a5lgfuj6sa.execute-api.us-east-1.amazonaws.com/Stage
 ```
 Example output:
 ```
@@ -12,7 +12,7 @@ Example output:
 {"deviceID": "1N4BU31D2TC186889", "err": 75698, "timestamp":1514766731},
 {"deviceID": "1N4BU31D2TC186889", "err": 35294, "timestamp":1514766784}
 ```
-** 2. Send a GET request to the endpoint to get the logs of the error codes in the reverse chronological order for any given device ID please run the `curl` command below. Plase customize the URL with another deviceID, start and end time to get different log listing:
+** 2. Send a GET request to the endpoint to get the logs of the error codes in the reverse chronological order for any given device ID please run the `curl` command below. Please note that the URL ends with the deviceID. Replace it with another id to get different listing:
 ```
 curl -X GET \
   https://a5lgfuj6sa.execute-api.us-east-1.amazonaws.com/Stage/JA3215H14CU015290 \
@@ -22,23 +22,9 @@ curl -X GET \
 ```
 Example output:
 ```
-[
-    {
-        "deviceId": "JA3215H14CU015290"
-    },
-    {
-        "deviceId": "JA3215H14CU015290"
-    },
-    {
-        "deviceId": "JA3215H14CU015290"
-    },
-    {
-        "deviceId": "JA3215H14CU015290"
-    },
-    {
-        "deviceId": "JA3215H14CU015290"
-    }
-]
+[{"error_code":15601, "timestamp":1514767287},
+{"error_code":87830, "timestamp":1514767247},
+{"error_code":57203, "timestamp":1514767243}]
 ```
 
 ** 3. Send a GET request to the endpoint to get the logs of the the most prevalent error codes (currently requires at least occurances for a given device id):
@@ -75,7 +61,8 @@ curl -X GET \
   'https://a5lgfuj6sa.execute-api.us-east-1.amazonaws.com/Stage/range/JA3215H14CU015290?startDate=2017-12-05T08:15:30Z&endDate=2018-01-05T08:15:30Z' \
   -H 'Content-Type: application/javascript' \
   -H 'Postman-Token: a240a211-9b99-4fa4-81a2-234aeb2c4120' \
-  -H 'cache-control: no-cache'  ```
+  -H 'cache-control: no-cache'
+  ```
 Example output:
 ```
     {
