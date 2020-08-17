@@ -15,9 +15,9 @@ Example output:
 ** 2. Send a GET request to the endpoint to get the logs of the error codes in the reverse chronological order for any given device ID please run the `curl` command below. Plase customize the URL with another deviceID, start and end time to get different log listing:
 ```
 curl -X GET \
-  'https://a5lgfuj6sa.execute-api.us-east-1.amazonaws.com/Stage/range/JA3215H14CU015290?startDate=2017-12-05T08:15:30Z&endDate=2018-01-05T08:15:30Z' \
+  https://a5lgfuj6sa.execute-api.us-east-1.amazonaws.com/Stage/JA3215H14CU015290 \
   -H 'Content-Type: application/javascript' \
-  -H 'Postman-Token: 0dec9bc2-3629-4380-bfbf-b5ce82df5237' \
+  -H 'Postman-Token: 5023ff60-47a5-4b7f-9dea-612138fb1ea4' \
   -H 'cache-control: no-cache'
 ```
 Example output:
