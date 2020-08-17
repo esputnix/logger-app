@@ -89,8 +89,8 @@ Example output:
 curl -X POST \
   https://a5lgfuj6sa.execute-api.us-east-1.amazonaws.com/Stage \
   -H 'Content-Type: application/json' \
-  -H 'Postman-Token: f4e27ac2-43d2-479b-b37a-73efedf908a9' \
   -H 'cache-control: no-cache' \
+  -H 'x-api-key: 1G8wVdcIMs7r6V3toNBUF30RSZFHBoZn4iYTcNbD' \
   -d '{"deviceID": "9N4BU31D2TC186896", "err": 35294, "timestamp":1514766784}'
 ```
 Example output:
