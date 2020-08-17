@@ -62,8 +62,8 @@ Example output:
 ** 4. Send a GET request to the endpoint to get the logs list that occured within a specific time frame for any given device ID. Please use the `curl` command below. This endpoint takes the `deviceID` as an argument along with the `startDate` and `endDate` Query String Parameters:
 ```
 curl -X GET \
-  'https://a5lgfuj6sa.execute-api.us-east-1.amazonaws.com/Stage/range/JA3215H14CU015290?startDate=2017-12-05T08:15:30Z&endDate=2018-01-05T08:15:30Z&x-api-key=1G8wVdcIMs7r6V3toNBUF30RSZFHBoZn4iYTcNbD' \
-  -H 'Content-Type: application/javascript' \
+  'https://a5lgfuj6sa.execute-api.us-east-1.amazonaws.com/Stage/stat?min=2' \
+  -H 'Content-Type: application/json' \
   -H 'cache-control: no-cache' \
   -H 'x-api-key: 1G8wVdcIMs7r6V3toNBUF30RSZFHBoZn4iYTcNbD'
   ```
