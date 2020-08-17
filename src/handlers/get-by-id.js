@@ -3,22 +3,17 @@ const docClient = new dynamodb.DocumentClient();
 const tableName = process.env.SAMPLE_TABLE;
 
 exports.getByIdHandler = async (event) => {
-  const { httpMethod, path, pathParameters } = event;
-  if (httpMethod !== 'GET') {
-    throw new Error(`getByIdHandler only accept GET method, you tried: ${httpMethod}`);
-  }
-  console.log('....received:', JSON.stringify(event));
+  console.log('event:', JSON.stringify(event));
 
+  const { path, pathParameters } = event;  
+  
   const { id } = pathParameters;
-
-  console.log('....id:', id);
   
   var params = {
     ExpressionAttributeValues: {
       ':s': id
      },
     KeyConditionExpression: 'deviceID = :s',
-    // FilterExpression: 'contains (Subtitle, :topic)',
     TableName: tableName
   };
 
@@ -35,6 +30,5 @@ exports.getByIdHandler = async (event) => {
     body: JSON.stringify(items.reverse()),
   };
 
-  console.log(`...response from: ${path} statusCode: ${response.statusCode} body: ${response.body}`);
   return response;
 };

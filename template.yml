@@ -64,7 +64,7 @@ Resources:
         Api:
           Type: Api
           Properties:
-            Path: /{id}
+            Path: /logs/{id}
             Method: GET
 
   getByIdTimeRangeFunction:
@@ -142,9 +142,7 @@ Resources:
       - AttributeName: deviceID
         AttributeType: S
       - AttributeName: err 
-        AttributeType: N
-      - AttributeName: status 
-        AttributeType: S        
+        AttributeType: N 
       KeySchema:
       - AttributeName: deviceID
         KeyType: HASH
@@ -165,7 +163,7 @@ Resources:
       GlobalSecondaryIndexes:
       - IndexName: timeIndex
         KeySchema:
-        - AttributeName: status
+        - AttributeName: err
           KeyType: HASH
         - AttributeName: timestamp
           KeyType: RANGE
