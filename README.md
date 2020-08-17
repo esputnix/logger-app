@@ -4,7 +4,11 @@
 
 ** 1. Send a GET request to the endpoint to get a complete list of all the log entities stored in the DynamoDB please run the `curl` command below:
 ```
-curl https://a5lgfuj6sa.execute-api.us-east-1.amazonaws.com/Stage
+curl -X GET \
+  'https://a5lgfuj6sa.execute-api.us-east-1.amazonaws.com/Stage?x-api-key=1G8wVdcIMs7r6V3toNBUF30RSZFHBoZn4iYTcNbD' \
+  -H 'Content-Type: application/javascript' \
+  -H 'cache-control: no-cache' \
+  -H 'x-api-key: 1G8wVdcIMs7r6V3toNBUF30RSZFHBoZn4iYTcNbD'
 ```
 Example output:
 ```
