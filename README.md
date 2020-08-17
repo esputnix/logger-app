@@ -34,10 +34,10 @@ Example output:
 ** 3. Send a GET request to the endpoint to get the logs of the the most prevalent error codes (currently requires at least occurrences for a given device id):
 ```
 curl -X GET \
-  'https://a5lgfuj6sa.execute-api.us-east-1.amazonaws.com/Stage/stat?min=1' \
+  'https://a5lgfuj6sa.execute-api.us-east-1.amazonaws.com/Stage/stat?min=2' \
   -H 'Content-Type: application/json' \
-  -H 'Postman-Token: f5cd736d-f5d0-4ea9-9ff3-9a89a2048820' \
-  -H 'cache-control: no-cache'
+  -H 'cache-control: no-cache' \
+  -H 'x-api-key: 1G8wVdcIMs7r6V3toNBUF30RSZFHBoZn4iYTcNbD'
 ```
 Example output:
 ```
