@@ -5,7 +5,7 @@
 ** 1. Send a GET request to the endpoint to get a complete list of all the log entities stored in the DynamoDB please run the `curl` command below:
 ```
 curl -X GET \
-  'https://a5lgfuj6sa.execute-api.us-east-1.amazonaws.com/Stage?x-api-key=1G8wVdcIMs7r6V3toNBUF30RSZFHBoZn4iYTcNbD' \
+  https://a5lgfuj6sa.execute-api.us-east-1.amazonaws.com/Stage \
   -H 'Content-Type: application/javascript' \
   -H 'cache-control: no-cache' \
   -H 'x-api-key: 1G8wVdcIMs7r6V3toNBUF30RSZFHBoZn4iYTcNbD'
@@ -19,10 +19,10 @@ Example output:
 ** 2. Send a GET request to the endpoint to get the logs of the error codes in the reverse chronological order for any given device ID please run the `curl` command below. Please note that the URL ends with the deviceID. Replace it with another id to get different listing:
 ```
 curl -X GET \
-  https://a5lgfuj6sa.execute-api.us-east-1.amazonaws.com/Stage/JA3215H14CU015290 \
+  https://a5lgfuj6sa.execute-api.us-east-1.amazonaws.com/Stage/logs/JA3215H14CU015290 \
   -H 'Content-Type: application/javascript' \
-  -H 'Postman-Token: 5023ff60-47a5-4b7f-9dea-612138fb1ea4' \
-  -H 'cache-control: no-cache'
+  -H 'cache-control: no-cache' \
+  -H 'x-api-key: 1G8wVdcIMs7r6V3toNBUF30RSZFHBoZn4iYTcNbD'
 ```
 Example output:
 ```
@@ -288,5 +288,3 @@ there was a Congitor User Pool defined with the `App client settings` configured
 ```
 https://console.aws.amazon.com/cognito/users/?region=us-east-1#/pool/us-east-1_mPgGZlgTd/app-integration-app-settings?_k=111q83
 ```
-
-
