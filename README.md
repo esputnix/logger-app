@@ -31,7 +31,7 @@ Example output:
 {"error_code":57203, "timestamp":1514767243}]
 ```
 
-** 3. Send a GET request to the endpoint to get the logs of the the most prevalent error codes (currently requires at least occurances for a given device id):
+** 3. Send a GET request to the endpoint to get the logs of the the most prevalent error codes (currently requires at least occurrences for a given device id):
 ```
 curl -X GET \
   'https://a5lgfuj6sa.execute-api.us-east-1.amazonaws.com/Stage/stat?min=1' \
@@ -124,17 +124,17 @@ Logger-App is an integrated continuous delivery pipeline application. Every chan
 
 # System Breakdown
 
-** 1. The Application defenition
-The Logger-App application and its pipeline resources are all defined in AWS CloudFormation tempale that can be customized and extended. The application repository includes a `template.yml` template that is used to add Amazon DynamoDB tables, an Amazon API Gateway API, and other application resources. The continuous delivery pipeline is defined in a separate template outside of source control and has its own stack.
+** 1. The Application definition
+The Logger-App application and its pipeline resources are all defined in AWS CloudFormation template that can be customized and extended. The application repository includes a `template.yml` template that is used to add Amazon DynamoDB tables, an Amazon API Gateway API, and other application resources. The continuous delivery pipeline is defined in a separate template outside of source control and has its own stack.
 
 To access the Logger App using AWS console please use the link below:
 ```
 https://console.aws.amazon.com/lambda/home?region=us-east-1#/applications
 ```
 
-** 2. DynomoDB database
+** 2. DynamoDB database
 
-The DynamoDB is a fully managed NoSQL database that provides fast and predictable performance with seamless scalability. It offloads the administrative burdens of operating and scaling a distributed database, encryption at rest, provides the on-demand backup capability and automatically spreads the data and traffic for the tables. The Logger-App temlate defines a table of type `AWS::DynamoDB::Table` with the `Primary KeySchema` indexing the `deviceID` field as `hash` keytype and `timestamp` field as `range`. In additon to the `Primary KeySchema` there is a `LocalSecondaryIndexes` defined with `deviceID` as `hash` keytype and `err` as `RANGE`:
+The DynamoDB is a fully managed NoSQL database that provides fast and predictable performance with seamless scalability. It offloads the administrative burdens of operating and scaling a distributed database, encryption at rest, provides the on-demand backup capability and automatically spreads the data and traffic for the tables. The Logger-App template defines a table of type `AWS::DynamoDB::Table` with the `Primary KeySchema` indexing the `deviceID` field as `hash` keytype and `timestamp` field as `range`. In addition to the `Primary KeySchema` there is a `LocalSecondaryIndexes` defined with `deviceID` as `hash` keytype and `err` as `RANGE`:
 ```
   SampleTable:
     Type: AWS::DynamoDB::Table
@@ -277,7 +277,7 @@ https://console.aws.amazon.com/apigateway/home?region=us-east-1#/apis/a5lgfuj6sa
 ```
 
 For each API Resource there were four methods created: `Method Request`, `Integration Request`,  `Method Response` and `Integration Response`.
-The are used to configure the Authorization, Validators, URL Query String Parameters and HTTP Request Body/Headers validation. The `AWS_IAM` along with Congito is used here for the Authorization mechanism. To access the Authorizer configuration page please use the link below:
+The are used to configure the Authorization, Validators, URL Query String Parameters and HTTP Request Body/Headers validation. The `AWS_IAM` along with Cognito is used here for the Authorization mechanism. To access the Authorizer configuration page please use the link below:
 ```
 https://console.aws.amazon.com/apigateway/home?region=us-east-1#/apis/a5lgfuj6sa/authorizers
 ```
